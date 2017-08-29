@@ -12,6 +12,7 @@ export class EmployeesComponent implements OnInit {
     city: 'trivandrum',
     joining_date: new Date()
   };
+  activeEmployee;
 
   actors = ['Rock', 'Dan', 'Johnson'];
 
@@ -50,6 +51,12 @@ export class EmployeesComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  
+
+  showEmployeeDetails(employee) {
+    this.activeEmployee = employee;
   }
 
 }

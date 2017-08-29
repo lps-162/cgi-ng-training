@@ -7,6 +7,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>City </th>
+        <th>Actions </th>
     </tr>
 
     <tr *ngFor="let employee of listOfEmployees">
@@ -19,5 +20,11 @@
         <td>
             {{ employee.city }}
         </td>
+        <td>
+            <input type="submit" class="btn btn-info" value="View Details"
+            (click)="showEmployeeDetails(employee)" >
+        </td>
     </tr>
 </table>
+
+<app-employee-details [employee]="activeEmployee"></app-employee-details>

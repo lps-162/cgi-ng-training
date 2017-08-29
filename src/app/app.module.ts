@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { AboutComponent } from "./about/about.component";
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-
+import { EmployeeDetailsComponent } from './employees/employee-details/employee-details.component';
+import { EmployeeCreateComponent } from './employees/employee-create/employee-create.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
     HomeComponent,
     EmployeesComponent,
     AboutComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmployeeCreateComponent
   ],
   imports: [
     BrowserModule
