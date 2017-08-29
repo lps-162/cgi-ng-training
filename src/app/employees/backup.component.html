@@ -1,0 +1,39 @@
+<h3>
+  Employee Details
+</h3>
+
+First Name: {{ employee.first_name }}
+<br>  
+Last Name: {{ employee.last_name }}
+<br>
+
+City: {{ employee.city | slice:0:4 }}
+<br>
+Date: {{ employee.joining_date | date:'shortTime' }}
+<br>
+
+<h3>
+  List of Employees
+</h3>
+<ul>
+  <li *ngFor="let employee of listOfEmployees">
+    {{ employee.first_name }} {{ employee.last_name }} - {{ employee.city }}
+      <br>
+      
+      <ul *ngIf="ifTravelledAtleast2Cities(employee)">
+        <b>Cities Travelled</b>
+        <div *ngFor="let city of employee.cities_travelled">
+          <li *ngIf="city.length > 0">
+            {{ city }}
+          </li>
+        </div>
+      </ul>
+  </li>
+</ul>
+
+Actors
+<ul>
+  <li *ngFor="let actor of actors">
+    {{ actor }}
+  </li>
+</ul>
