@@ -8,6 +8,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { AboutComponent } from "./about/about.component";
 import { EmployeeDetailsComponent } from './employees/employee-details/employee-details.component';
 import { EmployeeCreateComponent } from './employees/employee-create/employee-create.component';
+import { appRouting } from "./app.routing";
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { EmployeeCreateComponent } from './employees/employee-create/employee-cr
     EmployeesComponent,
     AboutComponent,
     EmployeeDetailsComponent,
-    EmployeeCreateComponent
+    EmployeeCreateComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    appRouting
   ],
   providers: [],
   bootstrap: [AppComponent]
