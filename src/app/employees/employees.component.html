@@ -1,9 +1,14 @@
+<a routerLink="/employees/create" class="btn btn-info">
+    Create New Employee
+</a>
 <h3>
     List of Employees
 </h3>
 
 <table class="table table-bordered">
     <tr>
+        <th>Id </th>
+        <th>Emp No</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>City </th>
@@ -11,6 +16,12 @@
     </tr>
 
     <tr *ngFor="let employee of listOfEmployees">
+         <td>
+            {{ employee.id }}
+        </td>
+         <td>
+            {{ employee.emp_no }}
+        </td>
         <td>
             {{ employee.first_name }}
         </td>
@@ -21,15 +32,18 @@
             {{ employee.city }}
         </td>
         <td>
-            <input type="submit" class="btn btn-info" value="View Details"
-            (click)="showEmployeeDetails(employee)" >
+            <!--<input type="submit" class="btn btn-info" value="View Details"
+            (click)="showEmployeeDetails(employee)" >-->
+            <a [routerLink]="['/employees', employee.id]" class="btn btn-success">
+                View
+            </a>
         </td>
     </tr>
 </table>
 
-<app-employee-details [employee]="activeEmployee">
+<!--<app-employee-details [employee]="activeEmployee">
 
 </app-employee-details>
 
 <app-employee-create (employeeCreated)="handleEmployeeCreation($event)"></app-employee-create>
-
+-->
