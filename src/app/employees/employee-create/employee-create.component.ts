@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Employee } from "../../shared/models/employee";
 
 @Component({
   selector: 'app-employee-create',
@@ -6,12 +7,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./employee-create.component.css']
 })
 export class EmployeeCreateComponent implements OnInit {
-  @Output() employeeCreated = new EventEmitter();
-  newEmployee = {
-    first_name: '',
-    last_name: '',
-    city: ''
-  };
+  @Output() employeeCreated = new EventEmitter<Employee>();
+  newEmployee: Employee = new Employee();
 
   name: string = 'shivam';
   
@@ -24,11 +21,7 @@ export class EmployeeCreateComponent implements OnInit {
 
   createNewEmployee() {
     this.employeeCreated.emit(this.newEmployee);
-    this.newEmployee = {
-      first_name: '',
-      last_name: '',
-      city: ''
-    };
+    this.newEmployee = new Employee();
   }
 
 }
