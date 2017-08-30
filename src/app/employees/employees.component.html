@@ -27,4 +27,9 @@
     </tr>
 </table>
 
-<app-employee-details [employee]="activeEmployee"></app-employee-details>
+<app-employee-details [employee]="activeEmployee">
+
+</app-employee-details>
+
+<app-employee-create (employeeCreated)="handleEmployeeCreation($event)"></app-employee-create>
+

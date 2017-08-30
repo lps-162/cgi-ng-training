@@ -6,15 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
-  employee = {
+  employee: Employee = {
     first_name: 'Shivan',
     last_name: 'Sambhan',
     city: 'trivandrum',
-    joining_date: new Date()
+    //joining_date: new Date()
   };
   activeEmployee;
-
-  actors = ['Rock', 'Dan', 'Johnson'];
 
   listOfEmployees = [
     {
@@ -59,4 +57,17 @@ export class EmployeesComponent implements OnInit {
     this.activeEmployee = employee;
   }
 
+  handleEmployeeCreation(employee) {
+    console.log(employee);
+    this.listOfEmployees.push(employee);
+  }
+
+}
+
+class Employee {
+  first_name: string;
+  city: string;
+  last_name: string;
+
+  
 }

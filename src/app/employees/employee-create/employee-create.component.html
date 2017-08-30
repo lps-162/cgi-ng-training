@@ -3,5 +3,18 @@
 </h3>
 
 <form (submit)="createNewEmployee()">
+  <div class="form-group">
+    First Name: <input type="text" class="form-control" 
+                  name="first_name"
+                  [(ngModel)]="newEmployee.first_name">
+    Last Name: <input type="text" class="form-control"
+                name="last_name"
+                [(ngModel)]="newEmployee.last_name">
+    City: <input type="text" class="form-control"
+                name="city"
+                [(ngModel)]="newEmployee.city">
 
+    <br>
+    <input type="submit" value="Create Employee" class="btn btn-info"/>
+  </div>
 </form>
