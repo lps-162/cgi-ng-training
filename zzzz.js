@@ -55,8 +55,43 @@
 
 // employee.age = 17;
 
-function Employee(name, age, salary) {
-    this.name;
-}
+// function Employee(name, age, salary) {
+//     this.name;
+// }
 
-let empObj = new Employee('lp', 213, 123);
+// let empObj = new Employee('lp', 213, 123);
+
+let mockEmployees = [
+    {
+        id: 1,
+        emp_no: 'AB198',
+        first_name: 'Shivan',
+        last_name: 'Sambhan',
+        city: 'trivandrum'
+    },
+    {
+        id: 2,
+        emp_no: 'B678',
+        first_name: 'Nanda',
+        last_name: 'Mahadeva',
+        city: 'Cbe'
+    },
+    {
+        id: 3,
+        emp_no: 'A889',
+        first_name: 'Ishan',
+        last_name: 'Sambhu',
+        city: 'Chennai'
+    }
+    ];
+
+const empDetails = mockEmployees.find(e => e.city === 'Chennai');
+
+//console.log(empDetails);
+
+const modifiedList = mockEmployees.map(e => {
+    e.full_name = e.first_name + ' ' + e.last_name;
+    return e;
+});
+
+console.log(modifiedList);
