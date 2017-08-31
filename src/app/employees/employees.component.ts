@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { mockEmployees } from '../shared/mock-data/mock-employees';
+//import { mockEmployees } from '../shared/mock-data/mock-employees';
 import { Employee } from "../shared/models/employee";
+import { Http } from "@angular/http";
+import { EmployeesService } from "../shared/services/employees.service";
 
 @Component({
   selector: 'app-employees',
@@ -9,10 +11,13 @@ import { Employee } from "../shared/models/employee";
 })
 export class EmployeesComponent implements OnInit {
   activeEmployee: Employee;
-  listOfEmployees: Employee[] = mockEmployees;
-  constructor() { }
+  listOfEmployees: Employee[];
+  
+  constructor(private empService: EmployeesService) { }
 
   ngOnInit() {
+    this.empService.getEmployees()
+      .subscribe(employees => this.listOfEmployees = employees);
   }
 
   ifTravelledAtleast2Cities(employee: Employee)
