@@ -2,8 +2,15 @@
   Create New Employee
 </h3>
 
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
 <form (submit)="createNewEmployee()">
   <div class="form-group">
+    Emp No: <input type="text" class="form-control" 
+                  name="emp_no"
+                  [(ngModel)]="newEmployee.emp_no">
     First Name: <input type="text" class="form-control" 
                   name="first_name"
                   [(ngModel)]="newEmployee.first_name">

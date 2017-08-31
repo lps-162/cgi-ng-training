@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 
 import 'rxjs/add/operator/map';
-import { Observable } from "rxjs/Observable";
-import { Employee } from "../models/employee";
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
+//import { Observable } from "rxjs/Observable";
+import { Employee } from "../models/employee";
+import {Observable} from 'rxjs/Rx';
 @Injectable()
 export class EmployeesService {
   employeesUrl = 'http://localhost:3000/api/employees';
@@ -14,7 +17,9 @@ export class EmployeesService {
   getEmployees() : Observable<Employee[]> {
     let empObservable =  this.http.get(this.employeesUrl)
                               .map(res => res.json())
-                              .map(employees => employees.map(this.formatEmployee));
+                              .map(employees => employees.map(this.formatEmployee))
+                              .catch(this.handleError);
+                      
     return empObservable;
   }
 
@@ -28,7 +33,15 @@ export class EmployeesService {
     employee.full_name = employee.first_name + ' ' + employee.last_name;
     return employee;
   }
-  createEmployee() {
 
+  private handleError(err) {
+    const errMessage = err.json().error.message;
+    return Observable.throw(errMessage);
+  }
+  
+  createEmployee(employee: Employee) {
+    return this.http.post(this.employeesUrl, employee)
+            .map(response => response.json())
+            .catch(this.handleError);
   }
 }

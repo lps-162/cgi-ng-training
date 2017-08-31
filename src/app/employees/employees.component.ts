@@ -12,12 +12,16 @@ import { EmployeesService } from "../shared/services/employees.service";
 export class EmployeesComponent implements OnInit {
   activeEmployee: Employee;
   listOfEmployees: Employee[];
-  
+  errorMessage: string;
+
   constructor(private empService: EmployeesService) { }
 
   ngOnInit() {
     this.empService.getEmployees()
-      .subscribe(employees => this.listOfEmployees = employees);
+      .subscribe(employees => {
+        this.listOfEmployees = employees;
+      },
+                errorMessage => this.errorMessage = errorMessage);
   }
 
   ifTravelledAtleast2Cities(employee: Employee)

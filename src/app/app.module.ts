@@ -13,6 +13,8 @@ import { appRouting } from "./app.routing";
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EmployeesService } from "./shared/services/employees.service";
+import { AlertService } from "./shared/services/alert.service";
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { EmployeesService } from "./shared/services/employees.service";
     EmployeeDetailsComponent,
     EmployeeCreateComponent,
     NavbarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { EmployeesService } from "./shared/services/employees.service";
     HttpModule,
     appRouting
   ],
-  providers: [EmployeesService],
+  providers: [EmployeesService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
